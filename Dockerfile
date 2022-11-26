@@ -4,7 +4,8 @@ WORKDIR /app
 
 COPY main.go .
 COPY server.go .
-
+RUN go mod init appdocker
+RUN cd /app & go build
 EXPOSE 8000
 
-CMD ["go", "run", "main.go", "server.go"]
+CMD ["/app/appdocker"]
